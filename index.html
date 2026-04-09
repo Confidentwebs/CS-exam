@@ -853,39 +853,62 @@
         </header>
 
         <!-- Course Selection Screen -->
-        <div id="courseSelection" class="card">
-            <h2 style="text-align: center; margin-bottom: 10px;">Select Your Course</h2>
-            <p style="text-align: center; color: var(--gray); margin-bottom: 30px;">Choose a course to begin your assessment</p>
-            
-            <div class="course-grid">
-                <div class="course-card" onclick="startQuiz('csc281')">
-                    <div class="course-code">CSC 281</div>
-                    <div class="course-title">Introduction to Cyber Technology</div>
-                    <div class="course-meta">
-                        <span>⏱️ 60 mins</span>
-                        <span>📝 50 Questions</span>
-                    </div>
-                </div>
-                
-                <div class="course-card" onclick="startQuiz('csc238')">
-                    <div class="course-code">CSC 238</div>
-                    <div class="course-title">VB.NET Programming</div>
-                    <div class="course-meta">
-                        <span>⏱️ 60 mins</span>
-                        <span>📝 50 Questions (45 MCQ + 5 Coding)</span>
-                    </div>
-                </div>
-                
-                <div class="course-card" onclick="startQuiz('csc286')">
-                    <div class="course-code">CSC 286 <span style="font-size: 1rem;">☁️</span></div>
-                    <div class="course-title">Cloud Application Development</div>
-                    <div class="course-meta">
-                        <span>⏱️ 60 mins</span>
-                        <span>📝 50 Questions (45 MCQ + 5 Practical)</span>
-                    </div>
-                </div>
+<div id="courseSelection" class="card">
+    <h2 style="text-align: center; margin-bottom: 10px;">Select Your Course</h2>
+    <p style="text-align: center; color: var(--gray); margin-bottom: 30px;">Choose a course to begin your assessment</p>
+    
+    <div class="course-grid">
+        <!-- CSC 281 -->
+        <div class="course-card" onclick="startQuiz('csc281')">
+            <div class="course-code">CSC 281</div>
+            <div class="course-title">Introduction to Cyber Technology</div>
+            <div class="course-meta">
+                <span>⏱️ 60 mins</span>
+                <span>📝 50 Questions</span>
             </div>
         </div>
+        
+        <!-- CSC 238 -->
+        <div class="course-card" onclick="startQuiz('csc238')">
+            <div class="course-code">CSC 238</div>
+            <div class="course-title">VB.NET Programming</div>
+            <div class="course-meta">
+                <span>⏱️ 60 mins</span>
+                <span>📝 50 Questions (45 MCQ + 5 Coding)</span>
+            </div>
+        </div>
+        
+        <!-- CSC 286 -->
+        <div class="course-card" onclick="startQuiz('csc286')">
+            <div class="course-code">CSC 286 <span style="font-size: 1rem;">☁️</span></div>
+            <div class="course-title">Cloud Application Development</div>
+            <div class="course-meta">
+                <span>⏱️ 60 mins</span>
+                <span>📝 50 Questions (45 MCQ + 5 Practical)</span>
+            </div>
+        </div>
+        
+        <!-- CSC 270 -->
+        <div class="course-card" onclick="startQuiz('csc270')">
+            <div class="course-code">CSC 270</div>
+            <div class="course-title">UI/UX Design</div>
+            <div class="course-meta">
+                <span>⏱️ 60 mins</span>
+                <span>📝 50 Questions (49 MCQ + 1 Calculation)</span>
+            </div>
+        </div>
+        
+        <!-- IFT 211 -->
+        <div class="course-card" onclick="startQuiz('ift211')">
+            <div class="course-code">IFT 211</div>
+            <div class="course-title">Digital Logic Design</div>
+            <div class="course-meta">
+                <span>⏱️ 60 mins</span>
+                <span>📝 50 Questions (49 MCQ + 1 Calculation)</span>
+            </div>
+        </div>
+    </div>
+</div>
 
         <!-- Quiz Screen -->
         <div id="quizScreen" class="card hidden">
@@ -1590,6 +1613,1047 @@
         acceptableAnswers: ["enterprise, google's internal, hyperscale, colocation, edge", "enterprise data center, google internal, hyperscale, colocation data center, edge data center"],
         explanation: "Lesson notes list: 1) Enterprise Data Centers, 2) Google's internal, 3) Hyperscale Data Centers (AWS, Azure), 4) Colocation Data Center, 5) Edge Data Center."
     }
+],
+
+    csc270: [
+    // 1. IMPORTANCE OF UCD (Questions 1-8)
+    { 
+        q: "What is the primary goal of User-Centered Design (UCD)?", 
+        options: ["Minimize development cost", "Place users at the center of the design process", "Use latest technology", "Create complex interfaces"], 
+        a: 1,
+        explanations: [
+            "Cost is secondary to user needs in UCD.",
+            "CORRECT: UCD focuses on understanding user needs, behaviors, and limitations throughout the entire design process.",
+            "Technology serves users, not the other way around.",
+            "UCD aims for simplicity, not complexity."
+        ]
+    },
+    { 
+        q: "Why is UCD important in product development?", 
+        options: ["It speeds up coding", "Reduces risk of product failure by ensuring user needs are met", "Eliminates need for testing", "Makes products more expensive"], 
+        a: 1,
+        explanations: [
+            "UCD may add initial time but saves time later.",
+            "CORRECT: Products designed with UCD are more likely to succeed because they actually solve user problems.",
+            "UCD requires extensive testing.",
+            "UCD reduces costs by avoiding redesign."
+        ]
+    },
+    { 
+        q: "What is the first step in UCD?", 
+        options: ["Write code", "Understand and specify the context of use", "Design the database", "Launch marketing"], 
+        a: 1,
+        explanations: [
+            "Coding comes after design in UCD.",
+            "CORRECT: Understanding who users are, their environment, and their goals comes before any design work.",
+            "Technical architecture follows user research.",
+            "Marketing is business function, not UCD step."
+        ]
+    },
+    { 
+        q: "How does UCD benefit users?", 
+        options: ["Forces them to learn complex systems", "Creates products that are easier to use and more satisfying", "Increases product price", "Limits product features"], 
+        a: 1,
+        explanations: [
+            "UCD reduces complexity, not increases it.",
+            "CORRECT: UCD leads to intuitive, efficient, and enjoyable products that match user mental models.",
+            "UCD aims for value, not high prices.",
+            "Features are based on user needs, not arbitrarily limited."
+        ]
+    },
+    { 
+        q: "What happens when UCD is NOT followed?", 
+        options: ["Products are cheaper", "Higher risk of user rejection and product failure", "Development is faster", "Better technical performance"], 
+        a: 1,
+        explanations: [
+            "Initial cost may be lower but total cost higher.",
+            "CORRECT: Without UCD, products may not match user needs, leading to poor adoption and costly redesigns.",
+            "Skipping research leads to rework later.",
+            "Technical performance doesn't guarantee user acceptance."
+        ]
+    },
+    { 
+        q: "Who should be involved in UCD process?", 
+        options: ["Only programmers", "Multidisciplinary team including users", "Only marketing team", "Only managers"], 
+        a: 1,
+        explanations: [
+            "Programmers alone lack user perspective.",
+            "CORRECT: UCD involves designers, developers, researchers, and actual users throughout the process.",
+            "Marketing alone lacks technical and design expertise.",
+            "Managers alone lack hands-on user knowledge."
+        ]
+    },
+    { 
+        q: "What is iterative design in UCD?", 
+        options: ["Design once and ship", "Repeated cycles of design, test, and refine", "Add features continuously", "Change design daily"], 
+        a: 1,
+        explanations: [
+            "UCD rejects one-time design approach.",
+            "CORRECT: Iterative design involves prototyping, testing with users, and refining based on feedback.",
+            "Feature creep is different from iteration.",
+            "Daily changes are chaotic, not iterative."
+        ]
+    },
+    { 
+        q: "What is the ROI of UCD?", 
+        options: ["Always negative", "Reduced support costs, increased productivity, higher customer satisfaction", "Only aesthetic improvement", "No measurable benefit"], 
+        a: 1,
+        explanations: [
+            "UCD provides positive ROI.",
+            "CORRECT: Every $1 invested in UCD returns $10-100 in reduced support costs and increased efficiency.",
+            "Benefits go beyond aesthetics to usability.",
+            "Benefits are well-documented and measurable."
+        ]
+    },
+
+    // 2. DESIGN THINKING PROCESS (Questions 9-14)
+    { 
+        q: "What are the five stages of Design Thinking?", 
+        options: ["Plan, Code, Test, Deploy, Maintain", "Empathize, Define, Ideate, Prototype, Test", "Research, Design, Build, Sell, Support", "Analyze, Develop, Test, Release, Market"], 
+        a: 1,
+        explanations: [
+            "That's software development lifecycle.",
+            "CORRECT: Design Thinking follows Stanford d.school model: Empathize (understand users), Define (problem), Ideate (solutions), Prototype, Test.",
+            "That's business process, not design thinking.",
+            "That's traditional product development."
+        ]
+    },
+    { 
+        q: "What happens in the 'Empathize' stage?", 
+        options: ["Write code", "Understand user needs through observation and interaction", "Create final design", "Launch product"], 
+        a: 1,
+        explanations: [
+            "Coding comes much later.",
+            "CORRECT: Empathy involves user research, interviews, and observation to understand user perspectives and pain points.",
+            "Final design comes after multiple stages.",
+            "Launch is the final step."
+        ]
+    },
+    { 
+        q: "What is the purpose of the 'Define' stage?", 
+        options: ["Write technical specifications", "Clearly articulate the problem to solve", "Start programming", "Create marketing plan"], 
+        a: 1,
+        explanations: [
+            "Technical specs come after problem definition.",
+            "CORRECT: Define stage synthesizes research into actionable problem statement (Point of View).",
+            "Programming comes after design.",
+            "Marketing is separate from design thinking."
+        ]
+    },
+    { 
+        q: "What technique is commonly used in the 'Ideate' stage?", 
+        options: ["Debugging", "Brainstorming and sketching multiple solutions", "Database optimization", "Server configuration"], 
+        a: 1,
+        explanations: [
+            "Debugging is implementation activity.",
+            "CORRECT: Ideation uses brainstorming, mind mapping, and sketching to generate diverse solution possibilities.",
+            "Optimization is technical implementation.",
+            "Configuration is IT activity."
+        ]
+    },
+    { 
+        q: "Why is 'Prototype' stage important?", 
+        options: ["To create final product immediately", "To test ideas quickly and cheaply before full development", "To replace user research", "To eliminate need for testing"], 
+        a: 1,
+        explanations: [
+            "Prototypes are preliminary, not final.",
+            "CORRECT: Prototyping allows testing concepts with minimal investment, learning from failures early.",
+            "Prototyping follows research.",
+            "Prototypes are made to be tested."
+        ]
+    },
+    { 
+        q: "What is the goal of the 'Test' stage in Design Thinking?", 
+        options: ["Find bugs in code", "Gather user feedback and refine solutions", "Check server load", "Verify marketing claims"], 
+        a: 1,
+        explanations: [
+            "Bug finding is QA testing, not design testing.",
+            "CORRECT: Testing with real users reveals insights that lead to refinements and sometimes redefining the problem.",
+            "Load testing is technical, not user-centered.",
+            "Marketing verification is different activity."
+        ]
+    },
+
+    // 3. HCI - HUMAN COMPUTER INTERFACE (Questions 15-20)
+    { 
+        q: "What does HCI stand for?", 
+        options: ["Hardware Computer Integration", "Human Computer Interaction", "High Computing Interface", "Host Control Interface"], 
+        a: 1,
+        explanations: [
+            "Not related to hardware integration specifically.",
+            "CORRECT: Human Computer Interaction studies how people interact with computers and how to design better interfaces.",
+            "Not about high performance computing.",
+            "Not networking terminology."
+        ]
+    },
+    { 
+        q: "What is the primary focus of HCI design?", 
+        options: ["Making computers faster", "Creating efficient, safe, and satisfying interaction between humans and computers", "Reducing hardware cost", "Increasing screen resolution"], 
+        a: 1,
+        explanations: [
+            "Performance is secondary to usability in HCI.",
+            "CORRECT: HCI focuses on the intersection of human capabilities and computer systems for optimal user experience.",
+            "Cost is business consideration, not HCI core.",
+            "Resolution is technical specification."
+        ]
+    },
+    { 
+        q: "Which field does HCI combine?", 
+        options: ["Only computer science", "Computer science, psychology, design, and ergonomics", "Only graphic design", "Only programming"], 
+        a: 1,
+        explanations: [
+            "HCI is interdisciplinary, not just CS.",
+            "CORRECT: HCI integrates multiple disciplines to understand both technology and human factors.",
+            "Design alone is insufficient.",
+            "Programming is just implementation."
+        ]
+    },
+    { 
+        q: "What is the goal of good HCI design?", 
+        options: ["Impress other programmers", "Minimize user effort and error while maximizing productivity", "Use maximum colors", "Add maximum features"], 
+        a: 1,
+        explanations: [
+            "Peer impressing is not user-centered.",
+            "CORRECT: Good HCI reduces cognitive load, prevents errors, and helps users achieve goals efficiently.",
+            "Color quantity doesn't indicate good HCI.",
+            "Feature quantity can harm usability."
+        ]
+    },
+    { 
+        q: "What is a user interface in HCI?", 
+        options: ["Only the hardware", "Point of contact between user and system including visual, auditory, and tactile elements", "Only the programming code", "Only the database"], 
+        a: 1,
+        explanations: [
+            "UI includes software, not just hardware.",
+            "CORRECT: Interface encompasses all interaction points: screens, sounds, haptics, and even gesture/voice inputs.",
+            "Code is backend, not interface.",
+            "Database is data storage, not interface."
+        ]
+    },
+    { 
+        q: "Why study HCI?", 
+        options: ["To make programming easier", "To create technology that humans can use effectively and enjoyably", "To reduce hardware costs only", "To eliminate user training"], 
+        a: 1,
+        explanations: [
+            "HCI focuses on users, not programmers.",
+            "CORRECT: HCI knowledge prevents costly design mistakes and creates products that actually work for people.",
+            "Cost is side benefit, not primary goal.",
+            "Some training is always needed."
+        ]
+    },
+
+    // 4. KEY CONCEPTS OF HCI DESIGN (Questions 21-38)
+    // UCD (already covered in section 1)
+    { 
+        q: "What is affordance in HCI?", 
+        options: ["High price", "Visual or physical property that suggests how to use an object", "Programming language", "Network protocol"], 
+        a: 1,
+        explanations: [
+            "Not related to pricing.",
+            "CORRECT: Affordances are perceivable action possibilities - buttons look pressable, links look clickable.",
+            "Not software development term.",
+            "Not networking concept."
+        ]
+    },
+    { 
+        q: "What is an example of good affordance in UI?", 
+        options: ["Hidden buttons", "3D button with shadow suggesting it can be pressed", "Flat text with no indication it's clickable", "Invisible navigation"], 
+        a: 1,
+        explanations: [
+            "Hidden elements violate affordance principles.",
+            "CORRECT: Visual depth cues (shadows, gradients) suggest the button can be pressed.",
+            "Flat text without styling hides affordance.",
+            "Invisible elements have no affordance."
+        ]
+    },
+    { 
+        q: "What is consistency in HCI design?", 
+        options: ["Making every screen completely different", "Using similar elements and patterns throughout the interface", "Changing colors randomly", "Using different fonts on every page"], 
+        a: 1,
+        explanations: [
+            "Inconsistency confuses users.",
+            "CORRECT: Consistent placement, colors, and behaviors reduce learning time and user errors.",
+            "Random changes destroy consistency.",
+            "Font inconsistency harms usability."
+        ]
+    },
+    { 
+        q: "Why is consistency important?", 
+        options: ["Makes design boring", "Users can transfer knowledge from one part to another, reducing cognitive load", "Increases development time", "Requires more user training"], 
+        a: 1,
+        explanations: [
+            "Consistency doesn't mean boring.",
+            "CORRECT: Consistent interfaces allow users to predict behavior, making systems easier to learn and use.",
+            "Consistency actually speeds development.",
+            "Consistency reduces training needs."
+        ]
+    },
+    { 
+        q: "What is a feedback loop in HCI?", 
+        options: ["Infinite loop in code", "System response informing user their action was registered and what happened", "Network routing", "Database query"], 
+        a: 1,
+        explanations: [
+            "Programming error, not HCI concept.",
+            "CORRECT: Feedback confirms actions (button press, loading state, success message) and keeps users informed.",
+            "Networking concept, not HCI.",
+            "Database operation, not user feedback."
+        ]
+    },
+    { 
+        q: "What happens when feedback is missing?", 
+        options: ["Users work faster", "Users are uncertain if their action worked and may repeat or abandon", "System runs more efficiently", "Errors decrease"], 
+        a: 1,
+        explanations: [
+            "Users actually slow down or stop.",
+            "CORRECT: Lack of feedback causes confusion, errors, and anxiety. Users may click multiple times or give up.",
+            "Efficiency is irrelevant if users can't proceed.",
+            "Errors increase without feedback."
+        ]
+    },
+    { 
+        q: "What is prototyping in HCI?", 
+        options: ["Final product development", "Creating preliminary models to test and refine designs", "Writing production code", "Marketing the product"], 
+        a: 1,
+        explanations: [
+            "Prototypes come before final products.",
+            "CORRECT: Prototypes range from paper sketches to interactive models for testing concepts with users.",
+            "Coding follows design prototyping.",
+            "Marketing is separate phase."
+        ]
+    },
+    { 
+        q: "What is the purpose of low-fidelity prototypes?", 
+        options: ["Final product delivery", "Quick, cheap exploration of concepts and gathering early feedback", "Replace user research", "Production deployment"], 
+        a: 1,
+        explanations: [
+            "Low-fi is preliminary, not final.",
+            "CORRECT: Paper sketches or wireframes allow rapid iteration without investing in polished designs.",
+            "Prototyping complements research.",
+            "Low-fi is never deployed."
+        ]
+    },
+    { 
+        q: "What is accessibility in HCI?", 
+        options: ["Making products expensive", "Designing so people with disabilities can use products", "Restricting user access", "Using only advanced technology"], 
+        a: 1,
+        explanations: [
+            "Accessibility doesn't increase cost significantly.",
+            "CORRECT: Accessibility includes screen readers, keyboard navigation, color contrast for visual impairments, etc.",
+            "Opposite - accessibility expands access.",
+            "Accessibility works with various technologies."
+        ]
+    },
+    { 
+        q: "What is WCAG?", 
+        options: ["Web Code Application Guide", "Web Content Accessibility Guidelines", "Windows Computer Application Group", "Wireless Communication Access Gateway"], 
+        a: 1,
+        explanations: [
+            "Not a coding standard.",
+            "CORRECT: WCAG provides internationally recognized standards for web accessibility (perceivable, operable, understandable, robust).",
+            "Not a Windows organization.",
+            "Not networking equipment."
+        ]
+    },
+    { 
+        q: "What is inclusive design?", 
+        options: ["Design for average user", "Design that considers the full range of human diversity", "Design for only disabled users", "Design for only expert users"], 
+        a: 1,
+        explanations: [
+            "No 'average' user exists.",
+            "CORRECT: Inclusive design considers permanent, temporary, and situational disabilities, benefiting all users.",
+            "Inclusive design helps everyone, not just disabled.",
+            "Expert-only design excludes most users."
+        ]
+    },
+
+    // 5. COGNITIVE AND PHYSICAL ERGONOMICS (Questions 39-44)
+    { 
+        q: "What is cognitive ergonomics?", 
+        options: ["Physical chair design", "Designing to match human mental capabilities and limitations", "Office lighting", "Keyboard manufacturing"], 
+        a: 1,
+        explanations: [
+            "That's physical ergonomics.",
+            "CORRECT: Cognitive ergonomics addresses mental workload, memory, attention, decision making, and human information processing.",
+            "Environmental design is different.",
+            "Manufacturing is production, not design."
+        ]
+    },
+    { 
+        q: "What is cognitive load?", 
+        options: ["Physical weight of computer", "Amount of mental effort required to use a system", "Battery capacity", "Storage size"], 
+        a: 1,
+        explanations: [
+            "Not physical weight.",
+            "CORRECT: High cognitive load overwhelms working memory. Good design minimizes extraneous cognitive load.",
+            "Not related to power.",
+            "Not data storage."
+        ]
+    },
+    { 
+        q: "What is physical ergonomics in HCI?", 
+        options: ["Database design", "Designing physical interaction to reduce strain and injury", "Network topology", "Software architecture"], 
+        a: 1,
+        explanations: [
+            "Not software structure.",
+            "CORRECT: Physical ergonomics addresses posture, repetitive strain, eye strain, and physical comfort in device use.",
+            "Not networking concept.",
+            "Not system design pattern."
+        ]
+    },
+    { 
+        q: "What is repetitive strain injury (RSI)?", 
+        options: ["Software bug", "Physical damage from repeated motions like typing or mouse use", "Virus infection", "Data corruption"], 
+        a: 1,
+        explanations: [
+            "Not software defect.",
+            "CORRECT: RSI includes carpal tunnel syndrome and tendonitis from poor ergonomic design of input devices.",
+            "Not malware.",
+            "Not data issue."
+        ]
+    },
+    { 
+        q: "How can HCI reduce eye strain?", 
+        options: ["Increase screen brightness to maximum", "Proper contrast, font size, spacing, and allowing breaks", "Use only blue colors", "Require continuous focus"], 
+        a: 1,
+        explanations: [
+            "Maximum brightness causes strain.",
+            "CORRECT: Good visual design includes adequate contrast, readable fonts, white space, and supporting the 20-20-20 rule.",
+            "Blue light actually contributes to strain.",
+            "Continuous focus increases strain."
+        ]
+    },
+    { 
+        q: "What is the 20-20-20 rule?", 
+        options: ["Coding standard", "Every 20 minutes, look at something 20 feet away for 20 seconds", "20-hour work day", "20 pixel font size"], 
+        a: 1,
+        explanations: [
+            "Not programming guideline.",
+            "CORRECT: This ergonomic practice reduces eye fatigue from prolonged screen use.",
+            "Unhealthy work schedule.",
+            "Not specific pixel requirement."
+        ]
+    },
+
+    // 6. INTEGRATING COGNITIVE & PHYSICAL ACCOMMODATIONS (Questions 45-47)
+    { 
+        q: "What is universal design?", 
+        options: ["Design for one specific user", "Design that works for people with widest range of abilities", "Expensive custom design", "Design that requires adaptation"], 
+        a: 1,
+        explanations: [
+            "Opposite of universal.",
+            "CORRECT: Universal design creates products usable by all people without adaptation or specialized design.",
+            "Universal design is cost-effective, not expensive.",
+            "Universal design needs no adaptation."
+        ]
+    },
+    { 
+        q: "How do cognitive and physical accommodations integrate?", 
+        options: ["They are separate and never combined", "Design that addresses both mental processing and physical interaction needs", "Only focus on physical", "Only focus on cognitive"], 
+        a: 1,
+        explanations: [
+            "They must be integrated together.",
+            "CORRECT: Complete design considers both cognitive load (mental) and ergonomic factors (physical) simultaneously.",
+            "Both aspects are essential.",
+            "Both aspects are essential."
+        ]
+    },
+    { 
+        q: "What is an example of integrated accommodation?", 
+        options: ["Complex gestures only", "Voice control that reduces both physical strain and cognitive load", "Tiny text with high density", "Fast flashing animations"], 
+        a: 1,
+        explanations: [
+            "Complex gestures exclude many users.",
+            "CORRECT: Voice interfaces help users with motor disabilities AND reduce cognitive effort for all users.",
+            "Tiny text harms both cognitive and physical access.",
+            "Animations can trigger seizures and cognitive issues."
+        ]
+    },
+
+    // 7. SYSTEM DESIGN METHODOLOGY (Question 48)
+    { 
+        q: "What is the waterfall model in system design?", 
+        options: ["Iterative approach", "Sequential phases: requirements, design, implementation, testing, maintenance", "No planning", "Continuous deployment"], 
+        a: 1,
+        explanations: [
+            "Waterfall is not iterative.",
+            "CORRECT: Waterfall moves linearly through phases with little iteration. Each phase must complete before next begins.",
+            "Waterfall requires extensive planning.",
+            "Continuous deployment is agile/DevOps."
+        ]
+    },
+
+    // 8. INTERFACE DESIGN & INFORMATION ARCHITECTURE (Question 49)
+    { 
+        q: "What is Information Architecture (IA)?", 
+        options: ["Building design", "Structuring and organizing content to help users find information", "Graphic design", "Network cabling"], 
+        a: 1,
+        explanations: [
+            "Not physical architecture.",
+            "CORRECT: IA involves organizing, structuring, and labeling content in effective and sustainable ways.",
+            "Visual design is separate discipline.",
+            "Not physical infrastructure."
+        ]
+    },
+
+    // 9. COLOR THEORY AND ACCESSIBILITY (Question 50 - Subjective)
+    { 
+        q: "Calculate the contrast ratio. Background: #FFFFFF (white), Text: #FF0000 (pure red). Luminance white=1.0, red=0.2126. Formula: (L1+0.05)/(L2+0.05)", 
+        code: `<span class="code-comment"># Contrast Ratio Calculation:</span>\nL1 (white) = 1.0\nL2 (red) = 0.2126\nRatio = (1.0 + 0.05) / (0.2126 + 0.05) = <span class="code-property">???</span>`,
+        subjective: true,
+        answer: "3.998",
+        acceptableAnswers: ["3.998", "4", "4.0", "3.99", "4.00", "~4", "approximately 4"],
+        explanation: "Calculation: 1.05 / 0.2626 = 3.998 ≈ 4:1. WCAG AA requires 4.5:1 for normal text, so pure red on white FAILS accessibility standards. This is why dark red (#8B0000) with ratio ~5.2:1 is preferred."
+    }
+],
+
+    ift211: [
+    // DATA REPRESENTATION (Questions 1-6)
+    { 
+        q: "What is a bit?", 
+        options: ["8 bytes", "Binary digit (0 or 1)", "1024 bytes", "16 bits"], 
+        a: 1,
+        explanations: [
+            "8 bytes = 64 bits.",
+            "CORRECT: Bit is the smallest unit of data in computing, representing two states: 0 or 1.",
+            "1024 bytes = 1 KB.",
+            "16 bits = 2 bytes (word)."
+        ]
+    },
+    { 
+        q: "What is a byte?", 
+        options: ["1 bit", "8 bits", "16 bits", "32 bits"], 
+        a: 1,
+        explanations: [
+            "1 bit is too small.",
+            "CORRECT: 1 byte = 8 bits, the standard unit for character encoding (ASCII, UTF-8).",
+            "16 bits = 2 bytes.",
+            "32 bits = 4 bytes."
+        ]
+    },
+    { 
+        q: "What is the maximum value of an unsigned 8-bit number?", 
+        options: ["127", "255", "256", "128"], 
+        a: 1,
+        explanations: [
+            "127 is maximum signed 8-bit.",
+            "CORRECT: 2^8 - 1 = 255. Range is 0 to 255 (256 total values).",
+            "256 is 2^8, but maximum is 255.",
+            "128 is 2^7."
+        ]
+    },
+    { 
+        q: "What is ASCII?", 
+        options: ["Programming language", "Character encoding standard using 7 or 8 bits", "Operating system", "Network protocol"], 
+        a: 1,
+        explanations: [
+            "Not a programming language.",
+            "CORRECT: ASCII (American Standard Code for Information Interchange) represents text characters as numbers.",
+            "Not an OS.",
+            "Not a networking standard."
+        ]
+    },
+    { 
+        q: "What is Unicode?", 
+        options: ["Audio format", "Character encoding supporting global languages", "Video codec", "File compression"], 
+        a: 1,
+        explanations: [
+            "Not audio-related.",
+            "CORRECT: Unicode (UTF-8, UTF-16) extends ASCII to support characters from all world languages.",
+            "Not video-related.",
+            "Not compression algorithm."
+        ]
+    },
+    { 
+        q: "What is the difference between big-endian and little-endian?", 
+        options: ["Processor speed", "Byte order in multi-byte data storage", "Memory size", "Bus width"], 
+        a: 1,
+        explanations: [
+            "Not related to speed.",
+            "CORRECT: Big-endian stores most significant byte first; little-endian stores least significant byte first.",
+            "Not related to capacity.",
+            "Not related to data bus width."
+        ]
+    },
+
+    // NUMBER SYSTEMS (Questions 7-18)
+    { 
+        q: "What is the base of binary number system?", 
+        options: ["8", "10", "2", "16"], 
+        a: 2,
+        explanations: [
+            "8 is octal base.",
+            "10 is decimal base.",
+            "CORRECT: Binary uses base-2 with digits 0 and 1 only.",
+            "16 is hexadecimal base."
+        ]
+    },
+    { 
+        q: "What is the base of octal number system?", 
+        options: ["2", "8", "10", "16"], 
+        a: 1,
+        explanations: [
+            "2 is binary base.",
+            "CORRECT: Octal uses base-8 with digits 0-7. Each octal digit represents 3 binary bits.",
+            "10 is decimal base.",
+            "16 is hexadecimal base."
+        ]
+    },
+    { 
+        q: "What is the base of decimal number system?", 
+        options: ["2", "8", "10", "16"], 
+        a: 2,
+        explanations: [
+            "2 is binary base.",
+            "8 is octal base.",
+            "CORRECT: Decimal uses base-10 with digits 0-9 (human standard).",
+            "16 is hexadecimal base."
+        ]
+    },
+    { 
+        q: "What is the base of hexadecimal number system?", 
+        options: ["2", "8", "10", "16"], 
+        a: 3,
+        explanations: [
+            "2 is binary base.",
+            "8 is octal base.",
+            "10 is decimal base.",
+            "CORRECT: Hexadecimal uses base-16 with digits 0-9 and A-F."
+        ]
+    },
+    { 
+        q: "Convert binary 1010 to decimal.", 
+        options: ["8", "10", "12", "14"], 
+        a: 1,
+        explanations: [
+            "1000 binary = 8.",
+            "CORRECT: 1010 = 8+2 = 10 decimal.",
+            "1100 binary = 12.",
+            "1110 binary = 14."
+        ]
+    },
+    { 
+        q: "Convert decimal 13 to binary.", 
+        options: ["1011", "1101", "1110", "1001"], 
+        a: 1,
+        explanations: [
+            "1011 = 11 decimal.",
+            "CORRECT: 13 = 8+4+1 = 1101 binary.",
+            "1110 = 14 decimal.",
+            "1001 = 9 decimal."
+        ]
+    },
+    { 
+        q: "Convert binary 1111 to hexadecimal.", 
+        options: ["7", "8", "F", "E"], 
+        a: 2,
+        explanations: [
+            "0111 = 7.",
+            "1000 = 8.",
+            "CORRECT: 1111 = 15 decimal = F in hex.",
+            "1110 = 14 = E."
+        ]
+    },
+    { 
+        q: "What is 2's complement representation used for?", 
+        options: ["Floating point numbers", "Signed integer representation", "Text encoding", "Image compression"], 
+        a: 1,
+        explanations: [
+            "Floating point uses IEEE 754 standard.",
+            "CORRECT: 2's complement allows representation of negative integers and simplifies arithmetic operations.",
+            "Text uses ASCII/Unicode.",
+            "Compression uses various algorithms."
+        ]
+    },
+    { 
+        q: "What is the range of signed 8-bit numbers in 2's complement?", 
+        options: ["0 to 255", "-128 to 127", "-127 to 128", "-256 to 255"], 
+        a: 1,
+        explanations: [
+            "That's unsigned range.",
+            "CORRECT: 2's complement 8-bit: -128 (10000000) to 127 (01111111).",
+            "Incorrect boundary values.",
+            "Exceeds 8-bit capacity."
+        ]
+    },
+    { 
+        q: "What is BCD (Binary Coded Decimal)?", 
+        options: ["Binary compression", "Each decimal digit encoded as 4-bit binary", "Base-12 system", "Boolean algebra"], 
+        a: 1,
+        explanations: [
+            "BCD expands storage, doesn't compress.",
+            "CORRECT: BCD represents each decimal digit (0-9) separately as 4 bits (e.g., 12 = 0001 0010).",
+            "Not base-12.",
+            "Not Boolean logic."
+        ]
+    },
+    { 
+        q: "Convert hexadecimal 2A to decimal.", 
+        options: ["32", "40", "42", "26"], 
+        a: 2,
+        explanations: [
+            "20 hex = 32 decimal.",
+            "28 hex = 40 decimal.",
+            "CORRECT: 2A = 2×16 + 10 = 42 decimal.",
+            "1A hex = 26 decimal."
+        ]
+    },
+
+    // LOGIC GATES (Questions 19-28)
+    { 
+        q: "Which gate outputs 1 only when ALL inputs are 1?", 
+        options: ["OR", "AND", "XOR", "NAND"], 
+        a: 1,
+        explanations: [
+            "OR outputs 1 if ANY input is 1.",
+            "CORRECT: AND gate: output = 1 only if all inputs are 1. Truth table: 1·1=1, all others 0.",
+            "XOR outputs 1 if inputs are DIFFERENT.",
+            "NAND is opposite of AND."
+        ]
+    },
+    { 
+        q: "Which gate outputs 1 when ANY input is 1?", 
+        options: ["AND", "OR", "XOR", "NOR"], 
+        a: 1,
+        explanations: [
+            "AND requires all inputs.",
+            "CORRECT: OR gate: output = 1 if at least one input is 1.",
+            "XOR requires exactly one input to be 1.",
+            "NOR is opposite of OR."
+        ]
+    },
+    { 
+        q: "Which gate is the universal gate?", 
+        options: ["AND", "OR", "NAND", "XOR"], 
+        a: 2,
+        explanations: [
+            "AND alone cannot create all gates.",
+            "OR alone cannot create all gates.",
+            "CORRECT: NAND can implement AND, OR, NOT, so any Boolean function can be built using only NAND gates.",
+            "XOR is not universal."
+        ]
+    },
+    { 
+        q: "What is the output of XOR gate when both inputs are 0?", 
+        options: ["0", "1", "Undefined", "High impedance"], 
+        a: 0,
+        explanations: [
+            "CORRECT: XOR outputs 0 when inputs are SAME (both 0 or both 1).",
+            "Would be output if inputs were different.",
+            "XOR always has defined output.",
+            "Not tri-state condition."
+        ]
+    },
+    { 
+        q: "What is the output of XOR gate when inputs are different?", 
+        options: ["0", "1", "Undefined", "Floating"], 
+        a: 1,
+        explanations: [
+            "Output is 0 when inputs are same.",
+            "CORRECT: XOR outputs 1 when inputs are DIFFERENT (1⊕0=1, 0⊕1=1).",
+            "Always defined.",
+            "Not floating state."
+        ]
+    },
+    { 
+        q: "What does a NOT gate (inverter) do?", 
+        options: ["Adds inputs", "Outputs the complement of input", "Multiplies inputs", "Delays signal"], 
+        a: 1,
+        explanations: [
+            "NOT is unary, doesn't add.",
+            "CORRECT: NOT inverts: 0→1, 1→0.",
+            "Not arithmetic operation.",
+            "While there is delay, function is inversion."
+        ]
+    },
+    { 
+        q: "What is the output of NOR gate when any input is 1?", 
+        options: ["0", "1", "Depends", "High impedance"], 
+        a: 0,
+        explanations: [
+            "CORRECT: NOR (NOT-OR) outputs 0 when any input is 1. Only outputs 1 when all inputs are 0.",
+            "Would be output of OR, not NOR.",
+            "Always deterministic.",
+            "Not tri-state."
+        ]
+    },
+    { 
+        q: "What is propagation delay in a gate?", 
+        options: ["Design time", "Time for output to change after input changes", "Clock period", "Setup time"], 
+        a: 1,
+        explanations: [
+            "Not development time.",
+            "CORRECT: Propagation delay (tpd) is the time between input transition and output response.",
+            "Clock is system timing.",
+            "Setup time is flip-flop parameter."
+        ]
+    },
+    { 
+        q: "What is fan-out of a logic gate?", 
+        options: ["Number of inputs", "Maximum number of gate inputs it can drive", "Clock speed", "Power consumption"], 
+        a: 1,
+        explanations: [
+            "That's fan-in.",
+            "CORRECT: Fan-out is the maximum number of standard loads the gate output can drive without degradation.",
+            "Not related to clock frequency.",
+            "Not power metric."
+        ]
+    },
+    { 
+        q: "What is a tri-state buffer?", 
+        options: ["Has three inputs", "Outputs 0, 1, or high-impedance (disconnected)", "Triple inverter", "Three AND gates"], 
+        a: 1,
+        explanations: [
+            "Usually has data + enable inputs.",
+            "CORRECT: Third state (high-Z) allows multiple devices to share a bus without interference.",
+            "Not triple inversion.",
+            "Not combination of ANDs."
+        ]
+    },
+
+    // BOOLEAN ALGEBRA (Questions 29-38)
+    { 
+        q: "What is the Boolean expression for AND gate?", 
+        options: ["Y = A + B", "Y = A · B or AB", "Y = A'", "Y = A ⊕ B"], 
+        a: 1,
+        explanations: [
+            "That's OR gate.",
+            "CORRECT: AND is represented by multiplication dot or juxtaposition. Output 1 only if both A AND B are 1.",
+            "That's NOT gate.",
+            "That's XOR gate."
+        ]
+    },
+    { 
+        q: "What is the Boolean expression for OR gate?", 
+        options: ["Y = AB", "Y = A + B", "Y = A'", "Y = (AB)'"], 
+        a: 1,
+        explanations: [
+            "That's AND gate.",
+            "CORRECT: OR is represented by plus sign. Output 1 if A OR B (or both) is 1.",
+            "That's NOT gate.",
+            "That's NAND gate."
+        ]
+    },
+    { 
+        q: "What is De Morgan's First Theorem?", 
+        options: ["(A+B)' = A' + B'", "(A+B)' = A' · B'", "(AB)' = A' + B'", "A + AB = A"], 
+        a: 1,
+        explanations: [
+            "Incorrect form.",
+            "CORRECT: The complement of a sum equals the product of complements. NOR = AND of complements.",
+            "That's Second Theorem.",
+            "That's absorption law."
+        ]
+    },
+    { 
+        q: "What is De Morgan's Second Theorem?", 
+        options: ["(AB)' = A' · B'", "(AB)' = A' + B'", "A + A'B = A + B", "A(A+B) = A"], 
+        a: 1,
+        explanations: [
+            "Incorrect form.",
+            "CORRECT: The complement of a product equals the sum of complements. NAND = OR of complements.",
+            "That's consensus theorem.",
+            "That's absorption law."
+        ]
+    },
+    { 
+        q: "What is the absorption law?", 
+        options: ["A + A = 2A", "A + AB = A", "A · A = A²", "A + A' = 0"], 
+        a: 1,
+        explanations: [
+            "Not valid Boolean algebra (no coefficients).",
+            "CORRECT: A + AB = A(1+B) = A·1 = A. The term AB is absorbed.",
+            "Not valid (no exponents in Boolean).",
+            "A + A' = 1, not 0."
+        ]
+    },
+    { 
+        q: "What is the idempotent law?", 
+        options: ["A + A = 2A", "A + A = A and A · A = A", "A + 1 = 1", "A · 0 = 0"], 
+        a: 1,
+        explanations: [
+            "Not valid (no coefficients in Boolean).",
+            "CORRECT: A variable ORed or ANDed with itself equals itself.",
+            "That's identity law for OR.",
+            "That's null law for AND."
+        ]
+    },
+    { 
+        q: "What is the identity element for OR operation?", 
+        options: ["0", "1", "A", "A'"], 
+        a: 0,
+        explanations: [
+            "CORRECT: A + 0 = A. Zero is identity for OR.",
+            "A + 1 = 1 (null element).",
+            "Not identity concept.",
+            "Not identity element."
+        ]
+    },
+    { 
+        q: "What is the identity element for AND operation?", 
+        options: ["0", "1", "A", "A'"], 
+        a: 1,
+        explanations: [
+            "A · 0 = 0 (null element).",
+            "CORRECT: A · 1 = A. One is identity for AND.",
+            "Not identity concept.",
+            "Not identity element."
+        ]
+    },
+    { 
+        q: "What is a minterm?", 
+        options: ["Sum of all variables", "Product term containing all variables in true or complement form", "Simplified expression", "Max value"], 
+        a: 1,
+        explanations: [
+            "Sum is maxterm.",
+            "CORRECT: Minterm is AND product of all variables (e.g., ABC', A'BC) representing one row of truth table.",
+            "Simplified is reduced form.",
+            "Not value-related."
+        ]
+    },
+    { 
+        q: "What is the purpose of a Karnaugh map (K-map)?", 
+        options: ["Draw circuit diagrams", "Simplify Boolean expressions visually", "Simulate circuits", "Measure voltage"], 
+        a: 1,
+        explanations: [
+            "CAD tools draw diagrams.",
+            "CORRECT: K-maps provide graphical method to identify and eliminate redundant variables for simpler circuits.",
+            "Simulators are software tools.",
+            "Multimeters measure voltage."
+        ]
+    },
+
+    // BINARY ARITHMETIC (Questions 39-44)
+    { 
+        q: "What is the result of binary addition 1 + 1?", 
+        options: ["0", "1", "10", "11"], 
+        a: 2,
+        explanations: [
+            "Would be with carry in, not 1+1.",
+            "Not valid in binary.",
+            "CORRECT: 1 + 1 = 10 (0 with carry 1). Like decimal 5 + 5 = 10.",
+            "Too large for single bit addition."
+        ]
+    },
+    { 
+        q: "What is a half-adder?", 
+        options: ["Adds two bits with carry-in", "Adds two bits producing sum and carry-out", "Adds three bits", "Subtracts two bits"], 
+        a: 1,
+        explanations: [
+            "That's full-adder.",
+            "CORRECT: Half-adder adds two single bits (A, B), outputs Sum (A⊕B) and Carry (A·B). No carry input.",
+            "Full-adder handles three inputs.",
+            "Subtractors perform subtraction."
+        ]
+    },
+    { 
+        q: "What is a full-adder?", 
+        options: ["Adds two bits", "Adds three bits: A, B, and carry-in", "Adds two bytes", "Multiplies bits"], 
+        a: 1,
+        explanations: [
+            "That's half-adder.",
+            "CORRECT: Full-adder adds two bits plus carry-in, producing sum and carry-out. Used for multi-bit addition.",
+            "Multi-bit adders use multiple full-adders.",
+            "Multipliers perform multiplication."
+        ]
+    },
+    { 
+        q: "What is the result of binary subtraction 10 - 1?", 
+        options: ["0", "1", "01", "11"], 
+        a: 1,
+        explanations: [
+            "10 - 10 = 0.",
+            "CORRECT: 10 (2) - 1 (1) = 01 (1).",
+            "That's 1, but leading zero unusual.",
+            "11 is 3, not result."
+        ]
+    },
+    { 
+        q: "How is subtraction typically performed in digital computers?", 
+        options: ["Direct subtraction circuits", "Using 2's complement addition", "Using decimal", "Using analog methods"], 
+        a: 1,
+        explanations: [
+            "Less efficient than complement method.",
+            "CORRECT: A - B = A + (-B) using 2's complement. Same adder circuit does both operations.",
+            "Computers use binary, not decimal internally.",
+            "Digital computers are digital, not analog."
+        ]
+    },
+    { 
+        q: "What is arithmetic overflow?", 
+        options: ["Division by zero", "Result exceeds maximum representable value", "Multiplication by one", "Addition of zero"], 
+        a: 1,
+        explanations: [
+            "Different error condition.",
+            "CORRECT: When sum exceeds maximum value representable with given bits (e.g., 255 + 1 in 8-bit).",
+            "Not error condition.",
+            "Not error condition."
+        ]
+    },
+
+    // COMPUTER ARCHITECTURE (Questions 45-50)
+    { 
+        q: "What is the function of ALU in CPU?", 
+        options: ["Store data", "Perform arithmetic and logical operations", "Control program flow", "Manage memory"], 
+        a: 1,
+        explanations: [
+            "Storage is memory/registers.",
+            "CORRECT: Arithmetic Logic Unit performs addition, subtraction, AND, OR, comparison operations.",
+            "Control is CU (Control Unit) function.",
+            "Memory management is MMU function."
+        ]
+    },
+    { 
+        q: "What is a register?", 
+        options: ["Hard disk", "Small, fast storage location inside CPU", "RAM module", "Cache memory"], 
+        a: 1,
+        explanations: [
+            "Disk is external storage.",
+            "CORRECT: Registers are fastest memory in CPU, holding data being processed (e.g., AX, BX in x86).",
+            "RAM is separate from CPU registers.",
+            "Cache is between registers and RAM."
+        ]
+    },
+    { 
+        q: "What is the purpose of program counter (PC)?", 
+        options: ["Count total instructions", "Hold address of next instruction to execute", "Store result", "Count clock cycles"], 
+        a: 1,
+        explanations: [
+            "Not total count.",
+            "CORRECT: PC tracks where in memory the next instruction is located, incrementing after each fetch.",
+            "Results go to registers/accumulator.",
+            "Clock cycles counted by timer."
+        ]
+    },
+    { 
+        q: "What is a bus in computer architecture?", 
+        options: ["Vehicle", "Communication pathway between components", "Storage device", "Power supply"], 
+        a: 1,
+        explanations: [
+            "Not transportation.",
+            "CORRECT: Bus is set of wires carrying address, data, or control signals between CPU, memory, and I/O.",
+            "Not storage.",
+            "Power is separate from data buses."
+        ]
+    },
+    { 
+        q: "What is the difference between RISC and CISC?", 
+        options: ["No difference", "RISC has fewer, simpler instructions; CISC has complex instructions", "RISC is older", "CISC is faster always"], 
+        a: 1,
+        explanations: [
+            "Significant architectural differences.",
+            "CORRECT: RISC (Reduced Instruction Set) uses simple instructions executed in one cycle; CISC (Complex) has variable-length instructions.",
+            "CISC (x86) predates RISC.",
+            "RISC often faster due to simplicity."
+        ]
+    },
+    { 
+        q: "Convert decimal 25 to binary.", 
+        code: `<span class="code-comment"># Decimal to Binary Conversion:</span>\n25 ÷ 2 = 12 remainder <span class="code-property">???</span>\n12 ÷ 2 = 6 remainder <span class="code-property">???</span>\n6 ÷ 2 = 3 remainder <span class="code-property">???</span>\n3 ÷ 2 = 1 remainder <span class="code-property">???</span>\n1 ÷ 2 = 0 remainder <span class="code-property">???</span>\n<span class="code-comment"># Read remainders bottom-up: 25₁₀ = ???₂</span>`,
+        subjective: true,
+        answer: "11001",
+        acceptableAnswers: ["11001", "11001₂", "1 1 0 0 1"],
+        explanation: "Division method: 25/2=12R1, 12/2=6R0, 6/2=3R0, 3/2=1R1, 1/2=0R1. Read bottom-up: 11001. Verification: 16+8+0+0+1 = 25."
+    }
 ]
         };
 
@@ -1628,7 +2692,9 @@
             const titles = {
                 'csc281': 'CSC 281: Intro to CyberTech',
                 'csc238': 'CSC 238: VB.NET Programming',
-                'csc286': 'CSC 286: Cloud Application'
+                'csc286': 'CSC 286: Cloud Application',
+                'csc270': 'CSC 270: UI/UX Design',
+                'ift211': 'IFT 211: Digital Logic Design',
             };
             document.getElementById('quizTitle').textContent = titles[course];
             
