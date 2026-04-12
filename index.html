@@ -191,6 +191,36 @@
             gap: 5px;
         }
         
+        /* Course Description */
+        .course-description {
+            max-height: 60vh;
+            overflow-y: auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            margin: 20px 0;
+            line-height: 1.6;
+        }
+        
+        .course-description h3 {
+            color: var(--cloud);
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .course-description p {
+            margin-bottom: 15px;
+        }
+        
+        .course-description ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .course-description li {
+            margin-bottom: 5px;
+        }
+        
         /* Quiz Interface */
         .quiz-header {
             display: flex;
@@ -907,8 +937,28 @@
                 <span>📝 50 Questions (49 MCQ + 1 Calculation)</span>
             </div>
         </div>
+        
+        <!-- MATH 201 -->
+        <div class="course-card" onclick="startQuiz('math201')">
+            <div class="course-code">MATH 201</div>
+            <div class="course-title">Calculus I</div>
+            <div class="course-meta">
+                <span>⏱️ 60 mins</span>
+                <span>📝 50 Questions</span>
+            </div>
+        </div>
     </div>
 </div>
+
+        <!-- Course Description Screen -->
+        <div id="descriptionScreen" class="card hidden">
+            <h2 id="descriptionTitle">Topic Description</h2>
+            <div id="descriptionContent" class="course-description"></div>
+            <div style="text-align: center; margin-top: 30px;">
+                <button class="btn btn-secondary" id="previousTopicBtn" onclick="previousTopic()" style="margin-right: 15px;">Previous</button>
+                <button class="btn btn-primary" id="proceedToQuestionsBtn" onclick="proceedToQuestions()">Proceed</button>
+            </div>
+        </div>
 
         <!-- Quiz Screen -->
         <div id="quizScreen" class="card hidden">
@@ -1013,6 +1063,158 @@
     </div>
 
     <script>
+        // Course Descriptions for sequential learning
+        const courseDescriptions = {
+            math201: [
+                {
+                    title: "TOPIC 1: DIFFERENTIATION",
+                    content: `
+                        <h3>🔹 Let's learn this topic briefly</h3>
+                        <p>Differentiation is about understanding how something is changing at a specific moment, not over time.</p>
+                        <p>Think of it like this:</p>
+                        <p>If you travel from Port Harcourt to Lagos in 6 hours, your average speed might be 80 km/h. But at some moments, you might be going: 40 km/h (traffic), 100 km/h (highway)</p>
+                        <p>👉 Differentiation tells you your exact speed at a particular moment, not the average.</p>
+                        
+                        <h3>🔹 Graph Meaning</h3>
+                        <p>If you draw a curve:</p>
+                        <p>Differentiation tells you the slope (steepness) at a point</p>
+                        <p>Steeper = faster change, Flat = no change</p>
+                        
+                        <h3>🔹 Simple Example</h3>
+                        <p>𝑓(𝑥) = 𝑥²</p>
+                        <p>Derivative: 𝑓′(𝑥) = 2𝑥</p>
+                        <p>If 𝑥 = 3: 𝑓′(3) = 6</p>
+                        <p>👉 Meaning: At that point, the function is increasing at speed 6.</p>
+                        
+                        <h3>🔹 Real-Life Meaning</h3>
+                        <p>Speed = derivative of position</p>
+                        <p>Acceleration = derivative of speed</p>
+                        <p>Growth rate in business</p>
+                        <p>Change in temperature over time</p>
+                    `
+                },
+                {
+                    title: "TOPIC 2: APPLICATION OF DIFFERENTIATION",
+                    content: `
+                        <h3>🔹 Let's learn this topic briefly</h3>
+                        <p>This is where differentiation becomes useful in real life. Instead of just finding slopes, we now use derivatives to answer questions like: Where is the highest point? When is something fastest? How do we get maximum profit?</p>
+                        
+                        <h3>🔹 Example 1 (Business)</h3>
+                        <p>A company profit: 𝑃(𝑥) = 50𝑥 − 𝑥²</p>
+                        <p>This means: Profit increases at first, then starts decreasing</p>
+                        <p>To find the best point (maximum profit):</p>
+                        <p>Step 1: Differentiate 𝑃′(𝑥) = 50 − 2𝑥</p>
+                        <p>Step 2: Set to zero 50 − 2𝑥 = 0 → 𝑥 = 25</p>
+                        <p>👉 So the company should produce 25 units to make the most money.</p>
+                        
+                        <h3>🔹 Example 2 (Motion)</h3>
+                        <p>Height of a ball: ℎ(𝑡) = 10𝑡 − 5𝑡²</p>
+                        <p>Velocity: ℎ′(𝑡) = 10 − 10𝑡</p>
+                        <p>At the top: ℎ′(𝑡) = 0 → 𝑡 = 1</p>
+                        <p>👉 The ball reaches its highest point at 1 second.</p>
+                        
+                        <h3>🔹 Big Idea</h3>
+                        <p>Derivative helps you:</p>
+                        <ul>
+                            <li>Find turning points</li>
+                            <li>Solve optimization problems</li>
+                            <li>Understand real-world systems</li>
+                        </ul>
+                    `
+                },
+                {
+                    title: "TOPIC 3: MEAN VALUE THEOREM",
+                    content: `
+                        <h3>🔹 This topic connects:</h3>
+                        <p>👉 Average change</p>
+                        <p>👉 Exact (instant) change</p>
+                        
+                        <h3>🔹 Everyday Example</h3>
+                        <p>You travel: 120 km in 2 hours</p>
+                        <p>Average speed = 60 km/h</p>
+                        <p>👉 The theorem says: At some moment, your speed must have been exactly 60 km/h</p>
+                        <p>Even if: You slowed down, you sped up, there is at least one point where your exact speed equals the average.</p>
+                        
+                        <h3>🔹 Math Example</h3>
+                        <p>𝑓(𝑥) = 𝑥² from 1 to 3</p>
+                        <p>Average slope: (9 − 1)/(3 − 1) = 4</p>
+                        <p>Derivative: 𝑓′(𝑥) = 2𝑥</p>
+                        <p>Set equal: 2𝑥 = 4 → 𝑥 = 2</p>
+                        <p>👉 At 𝑥 = 2, the slope matches the average.</p>
+                        
+                        <h3>🔹 Why It Matters</h3>
+                        <ul>
+                            <li>Used in error estimation</li>
+                            <li>Helps prove other theorems</li>
+                            <li>Used in physics & engineering</li>
+                        </ul>
+                    `
+                },
+                {
+                    title: "TOPIC 4: TAYLOR SERIES",
+                    content: `
+                        <h3>🔹 Taylor series helps you turn a complicated function into a simple one.</h3>
+                        <p>Instead of working with something hard like: 𝑒ˣ</p>
+                        <p>We rewrite it as: 1 + 𝑥 + 𝑥²/2! + 𝑥³/3! + ⋯</p>
+                        
+                        <h3>🔹 Why This is Useful</h3>
+                        <p>Sometimes:</p>
+                        <ul>
+                            <li>You don't have a calculator</li>
+                            <li>The function is too complex</li>
+                        </ul>
+                        <p>So you approximate it using simple terms.</p>
+                        
+                        <h3>🔹 Example</h3>
+                        <p>Find 𝑒^0.1</p>
+                        <p>𝑒^0.1 ≈ 1 + 0.1 + 0.1²/2 = 1 + 0.1 + 0.005 = 1.105</p>
+                        <p>👉 Very close to real answer!</p>
+                        
+                        <h3>🔹 Real-Life Use</h3>
+                        <ul>
+                            <li>Computer calculations</li>
+                            <li>AI models</li>
+                            <li>Physics simulations</li>
+                            <li>Engineering systems</li>
+                        </ul>
+                    `
+                },
+                {
+                    title: "TOPIC 5: REAL NUMBER SYSTEM",
+                    content: `
+                        <h3>🔹 The real number system includes every number you can place on a straight line.</h3>
+                        <p>Imagine a long number line:</p>
+                        <p>Left → negative numbers</p>
+                        <p>Right → positive numbers</p>
+                        <p>Everything on that line = real numbers</p>
+                        
+                        <h3>🔹 Types of Numbers</h3>
+                        <ul>
+                            <li>Whole numbers: 0, 1, 2, 3</li>
+                            <li>Integers: -3, -2, -1, 0, 1</li>
+                            <li>Fractions (Rational): ½, ¾</li>
+                            <li>Irrational numbers: √2, π</li>
+                        </ul>
+                        
+                        <h3>🔹 Example</h3>
+                        <p>√2 = 1.414213...</p>
+                        <p>👉 It never ends, but it still exists on the number line.</p>
+                        
+                        <h3>🔹 Important Idea: No Gaps</h3>
+                        <p>Real numbers are complete.</p>
+                        <p>Example: 1, 1.4, 1.41, 1.414... approach √2, and that value exists.</p>
+                        
+                        <h3>🔹 Why It Matters</h3>
+                        <ul>
+                            <li>Used in programming (floats, doubles)</li>
+                            <li>Used in calculations</li>
+                            <li>Foundation of calculus</li>
+                        </ul>
+                    `
+                }
+            ]
+        };
+
         // Question Banks
         const questionBanks = {
             csc281: [
@@ -2654,7 +2856,265 @@
         acceptableAnswers: ["11001", "11001₂", "1 1 0 0 1"],
         explanation: "Division method: 25/2=12R1, 12/2=6R0, 6/2=3R0, 3/2=1R1, 1/2=0R1. Read bottom-up: 11001. Verification: 16+8+0+0+1 = 25."
     }
-]
+],
+
+        math201: [
+            // TOPIC 1: DIFFERENTIATION (Questions 1-10)
+            { 
+                q: "Find the derivative of x⁴ - 3x² + 2x", 
+                options: ["4x³ - 6x + 2", "x³ - 6x + 2", "4x³ - 3x + 2", "x⁴ - 6x + 2"], 
+                a: 0 
+            },
+            { 
+                q: "Differentiate sin(2x)", 
+                options: ["2cos(2x)", "cos(2x)", "sin(2x)", "2sin(x)"], 
+                a: 0 
+            },
+            { 
+                q: "If f(x) = e^(3x), then f'(x) =", 
+                options: ["e^(3x)", "3e^(3x)", "xe^(3x)", "3xe^(3x)"], 
+                a: 1 
+            },
+            { 
+                q: "Find the derivative of ln(x² + 1)", 
+                options: ["2x/(x² + 1)", "1/(x² + 1)", "2x", "ln(x)"], 
+                a: 0 
+            },
+            { 
+                q: "Differentiate x² cos(x)", 
+                options: ["2x cos(x) - x² sin(x)", "x² (-sin(x))", "2x cos(x)", "x² sin(x)"], 
+                a: 0 
+            },
+            { 
+                q: "If y = (x² + 1)³, find dy/dx", 
+                options: ["3(x² + 1)²", "6x(x² + 1)²", "2x(x² + 1)", "3x²"], 
+                a: 1 
+            },
+            { 
+                q: "Find the slope of the tangent to y = x³ at x = 2", 
+                options: ["6", "12", "8", "4"], 
+                a: 1 
+            },
+            { 
+                q: "If f'(x) = 0, then the point is a:", 
+                options: ["Always maximum", "Always minimum", "Stationary point", "Undefined"], 
+                a: 2 
+            },
+            { 
+                q: "Differentiate tan(x)", 
+                options: ["sec²(x)", "sin(x)", "cos(x)", "-sec²(x)"], 
+                a: 0 
+            },
+            { 
+                q: "If position s(t) = t³, velocity at t = 2 is:", 
+                options: ["6", "12", "8", "4"], 
+                a: 1 
+            },
+            // TOPIC 2: APPLICATION OF DIFFERENTIATION (Questions 11-20)
+            { 
+                q: "Find critical points of f(x) = x² - 4x", 
+                options: ["x = 0", "x = 2", "x = 4", "x = -2"], 
+                a: 1 
+            },
+            { 
+                q: "Determine maxima/minima of f(x) = x³ - 3x", 
+                options: ["Maximum at x = 1", "Minimum at x = 1", "Maximum at x = -1", "Minimum at x = -1"], 
+                a: 1 
+            },
+            { 
+                q: "If f'(x) > 0, the function is:", 
+                options: ["Decreasing", "Increasing", "Constant", "Undefined"], 
+                a: 1 
+            },
+            { 
+                q: "If f''(x) < 0, the graph is:", 
+                options: ["Concave up", "Concave down", "Linear", "Undefined"], 
+                a: 1 
+            },
+            { 
+                q: "Find maximum value of f(x) = 50x - x²", 
+                options: ["625", "1250", "2500", "3125"], 
+                a: 0 
+            },
+            { 
+                q: "At a turning point, the derivative equals:", 
+                options: ["1", "0", "-1", "Undefined"], 
+                a: 1 
+            },
+            { 
+                q: "Find point of inflection of f(x) = x³", 
+                options: ["x = 0", "x = 1", "x = -1", "No inflection"], 
+                a: 0 
+            },
+            { 
+                q: "Velocity is the derivative of:", 
+                options: ["Acceleration", "Position", "Force", "Time"], 
+                a: 1 
+            },
+            { 
+                q: "Acceleration equals:", 
+                options: ["Velocity", "Derivative of velocity", "Position", "Speed"], 
+                a: 1 
+            },
+            { 
+                q: "Find when velocity is zero for s = t² - 4t", 
+                options: ["t = 0", "t = 2", "t = 4", "t = 1"], 
+                a: 1 
+            },
+            // TOPIC 3: MEAN VALUE THEOREM (Questions 21-30)
+            { 
+                q: "State MVT conditions: f must be:", 
+                options: ["Discontinuous", "Continuous and differentiable", "Constant", "Linear"], 
+                a: 1 
+            },
+            { 
+                q: "Does f(x) = |x| satisfy MVT on [-1,1]?", 
+                options: ["Yes", "No, not differentiable", "No, not continuous", "Yes, at x=0"], 
+                a: 1 
+            },
+            { 
+                q: "Find c for f(x) = x² on [1,3]", 
+                options: ["c = √2", "c = 2", "c = 1.5", "c = 2.5"], 
+                a: 0 
+            },
+            { 
+                q: "Rolle's theorem applies when:", 
+                options: ["f(a) ≠ f(b)", "f(a) = f(b)", "f is constant", "f is linear"], 
+                a: 1 
+            },
+            { 
+                q: "If f(a) = f(b), then:", 
+                options: ["f'(c) = 0", "f'(c) = 1", "f'(c) = -1", "f'(c) = f(a)"], 
+                a: 0 
+            },
+            { 
+                q: "MVT requires differentiability on:", 
+                options: ["(a,b)", "[a,b]", "(a,b] or [a,b)", "Open interval"], 
+                a: 0 
+            },
+            { 
+                q: "Average rate formula is:", 
+                options: ["[f(b) - f(a)]/(b-a)", "[f(b) + f(a)]/(b-a)", "f(b)/f(a)", "f(a) - f(b)"], 
+                a: 0 
+            },
+            { 
+                q: "MVT guarantees existence of c where:", 
+                options: ["f'(c) = 0", "f'(c) = average rate", "f(c) = 0", "f(c) = average"], 
+                a: 1 
+            },
+            { 
+                q: "Apply MVT to f(x) = x³ on [0,1]", 
+                options: ["c = 1/√3", "c = 1/3", "c = 2/3", "c = 1"], 
+                a: 0 
+            },
+            { 
+                q: "If discontinuous, MVT:", 
+                options: ["Still applies", "Does not apply", "Applies partially", "Undefined"], 
+                a: 1 
+            },
+            // TOPIC 4: TAYLOR SERIES (Questions 31-40)
+            { 
+                q: "Expand e^x up to 3 terms", 
+                options: ["1 + x + x²/2", "1 + x + x²", "x + x²/2 + x³/6", "1 + x + x²/2 + x³/6"], 
+                a: 3 
+            },
+            { 
+                q: "Find Maclaurin series of sin(x)", 
+                options: ["x - x³/6 + x⁵/120", "1 - x²/2 + x⁴/24", "x - x³/3!", "x - x³/6"], 
+                a: 0 
+            },
+            { 
+                q: "Taylor expansion uses:", 
+                options: ["Only first derivative", "All derivatives at a point", "Only function values", "Random points"], 
+                a: 1 
+            },
+            { 
+                q: "Approximate e^0.1", 
+                options: ["1.1", "1.105", "1.11", "1.2"], 
+                a: 1 
+            },
+            { 
+                q: "Factorial in expansion represents:", 
+                options: ["Division", "n!", "Multiplication", "Addition"], 
+                a: 1 
+            },
+            { 
+                q: "Expand ln(1+x) up to 2 terms", 
+                options: ["x - x²/2", "x + x²/2", "1 + x - x²/2", "x"], 
+                a: 0 
+            },
+            { 
+                q: "Error decreases when:", 
+                options: ["More terms added", "Terms removed", "Point changes", "Function changes"], 
+                a: 0 
+            },
+            { 
+                q: "Radius of convergence meaning:", 
+                options: ["Series validity range", "Circle radius", "Convergence speed", "Error bound"], 
+                a: 0 
+            },
+            { 
+                q: "Polynomial approximation use:", 
+                options: ["Exact calculation", "Approximation of complex functions", "Simple arithmetic", "Graphing"], 
+                a: 1 
+            },
+            { 
+                q: "Difference between Taylor & Maclaurin:", 
+                options: ["Maclaurin at 0", "Taylor at any point", "Both same", "Maclaurin more accurate"], 
+                a: 0 
+            },
+            // TOPIC 5: REAL NUMBER SYSTEM (Questions 41-50)
+            { 
+                q: "Prove √2 is irrational by:", 
+                options: ["Direct proof", "Contradiction", "Induction", "Counterexample"], 
+                a: 1 
+            },
+            { 
+                q: "Rational number definition:", 
+                options: ["p/q where q≠0", "p/q where p,q integers", "Any decimal", "Whole numbers"], 
+                a: 1 
+            },
+            { 
+                q: "Decimal expansion types:", 
+                options: ["Terminating only", "Terminating and repeating", "Infinite only", "Finite only"], 
+                a: 1 
+            },
+            { 
+                q: "Real number completeness means:", 
+                options: ["No gaps", "All numbers included", "Finite set", "Countable"], 
+                a: 0 
+            },
+            { 
+                q: "Difference between rational & irrational:", 
+                options: ["Rational terminate/repeat", "Irrational infinite non-repeating", "Both infinite", "Rational finite"], 
+                a: 1 
+            },
+            { 
+                q: "Examples of irrational numbers:", 
+                options: ["π, √2, e", "1/2, 0.75", "1, 2, 3", "0.5, 1.5"], 
+                a: 0 
+            },
+            { 
+                q: "Density property of reals:", 
+                options: ["Between any two reals exists another", "All reals are dense", "Reals are continuous", "No gaps"], 
+                a: 0 
+            },
+            { 
+                q: "Number line representation:", 
+                options: ["Only positive", "All reals on line", "Integers only", "Rationals only"], 
+                a: 1 
+            },
+            { 
+                q: "Between any two reals there exists:", 
+                options: ["A rational", "An irrational", "Both", "Neither"], 
+                a: 2 
+            },
+            { 
+                q: "Set of real numbers is:", 
+                options: ["Countable", "Uncountable", "Finite", "Empty"], 
+                a: 1 
+            }
+        ]
         };
 
         // State variables
@@ -2665,9 +3125,20 @@
         let timerInterval;
         let timeRemaining = 3600; // 60 minutes in seconds
         let startTime;
+        let currentTopicIndex = 0;
+        let inLearningMode = false;
 
         function startQuiz(course) {
             currentCourse = course;
+            
+            if (course === 'math201') {
+                // Start with learning mode
+                inLearningMode = true;
+                currentTopicIndex = 0;
+                showTopicDescription();
+                return;
+            }
+            
             currentQuestions = [...questionBanks[course]]; // Copy questions
             
             // Shuffle questions but keep subjective at end for courses that have them
@@ -2695,11 +3166,67 @@
                 'csc286': 'CSC 286: Cloud Application',
                 'csc270': 'CSC 270: UI/UX Design',
                 'ift211': 'IFT 211: Digital Logic Design',
+                'math201': 'MATH 201: Calculus I'
             };
             document.getElementById('quizTitle').textContent = titles[course];
             
             startTimer();
             displayQuestion();
+        }
+
+        function showTopicDescription() {
+            const descriptions = courseDescriptions[currentCourse];
+            const topic = descriptions[currentTopicIndex];
+            
+            document.getElementById('descriptionTitle').textContent = topic.title;
+            document.getElementById('descriptionContent').innerHTML = topic.content;
+            
+            // Update button states
+            const previousBtn = document.getElementById('previousTopicBtn');
+            const proceedBtn = document.getElementById('proceedToQuestionsBtn');
+            
+            previousBtn.disabled = currentTopicIndex === 0;
+            previousBtn.style.opacity = currentTopicIndex === 0 ? '0.5' : '1';
+            
+            const isLastTopic = currentTopicIndex === descriptions.length - 1;
+            proceedBtn.textContent = isLastTopic ? 'Start Quiz' : 'Proceed';
+            
+            document.getElementById('courseSelection').classList.add('hidden');
+            document.getElementById('descriptionScreen').classList.remove('hidden');
+            document.getElementById('quizScreen').classList.add('hidden');
+            document.getElementById('scoreboardScreen').classList.add('hidden');
+        }
+
+        function previousTopic() {
+            if (currentTopicIndex > 0) {
+                currentTopicIndex--;
+                showTopicDescription();
+            }
+        }
+
+        function proceedToQuestions() {
+            if (currentTopicIndex < courseDescriptions[currentCourse].length - 1) {
+                // Show next topic
+                currentTopicIndex++;
+                showTopicDescription();
+            } else {
+                // All topics done, start quiz
+                inLearningMode = false;
+                currentQuestions = [...questionBanks[currentCourse]];
+                currentQuestions.sort(() => Math.random() - 0.5);
+                currentQuestionIndex = 0;
+                userAnswers = new Array(currentQuestions.length).fill(-1);
+                timeRemaining = 3600;
+                startTime = Date.now();
+                
+                document.getElementById('descriptionScreen').classList.add('hidden');
+                document.getElementById('quizScreen').classList.remove('hidden');
+                
+                document.getElementById('quizTitle').textContent = 'MATH 201: Calculus I';
+                
+                startTimer();
+                displayQuestion();
+            }
         }
 
         function startTimer() {
@@ -2899,7 +3426,8 @@
     const courseTitles = {
         'csc281': 'CSC 281: Introduction to Cyber Technology',
         'csc238': 'CSC 238: VB.NET Programming',
-        'csc286': 'CSC 286: Cloud Application Development'
+        'csc286': 'CSC 286: Cloud Application Development',
+        'math201': 'MATH 201: Calculus I'
     };
     
     document.getElementById('scoreCourse').textContent = courseTitles[currentCourse];
@@ -3055,6 +3583,7 @@
 
         function backToCourses() {
             document.getElementById('scoreboardScreen').classList.add('hidden');
+            document.getElementById('descriptionScreen').classList.add('hidden');
             document.getElementById('courseSelection').classList.remove('hidden');
         }
 
